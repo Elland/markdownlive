@@ -246,8 +246,9 @@ NSString	*kMarkdownDocumentType = @"MarkdownDocumentType";
 		
 		NSURL *stdUrl = [url URLByStandardizingPath];
 		NSURL *docUrl = [[self fileURL] URLByStandardizingPath];
+        
 		if ([[url scheme] isEqualToString:@"applewebdata"] ||
-			[stdUrl isFileURL] && [stdUrl isEqualTo:docUrl]) {
+			([stdUrl isFileURL] && [stdUrl isEqualTo:docUrl]) ) {
 			[listener use];
 		} else {
 			[[NSWorkspace sharedWorkspace] openURL:url];
